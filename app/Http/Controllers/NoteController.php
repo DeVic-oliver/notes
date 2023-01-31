@@ -11,6 +11,10 @@ class NoteController extends Controller
         return view('index', ['notes' => $notes]);
     }
 
+    public function createNote(){
+        return view('note-creation');
+    }
+
     public function store(Request $request){
         $note = new Note();
         $note->title = $request->title;
