@@ -11,6 +11,10 @@
         <div style="border:1px solid #119955">
             <h1>{{$note->title}}</h1>
             <p>{{$note->description}}</p>
+            <form action="/note/{{$note->id}}" method="GET">
+                @csrf
+                <button type="submit" class="btn btn-primary">Visualizar</button>
+            </form>
         </div>
     @endforeach    
 @else

@@ -24,4 +24,12 @@ class NoteController extends Controller
         $note->save();
         return redirect('/note-creation')->with('msg', 'Note created');
     }
+
+    public function show(Request $request){
+        $note = Note::findOrfail($request->id);
+        if($note){
+            return view('note', ['note' => $note]);
+        }
+        return redirect('/')->with('msg', 'Note not Found');
+    }
 }
