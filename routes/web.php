@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\NoteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [NoteController::class, 'index']);
+// Route::post('/note/create', [NoteController::class, 'store']);
+// Route::delete('/note/delete/{id}', [NoteController::class, 'delete']);
+// Route::get('/note/{id}', [NoteController::class, 'show']);
+// Route::post('/note/edit/{id}', [NoteController::class, 'update']);
+
+
