@@ -4,7 +4,6 @@
 
 @section('content')
 
-<h1>This is the index</h1>
 <h1>My notes</h1>
 
 @if (is_countable($notes) && count($notes) > 0)
