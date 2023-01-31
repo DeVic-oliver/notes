@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class NoteController extends Controller
 {
     public function index(){
-        return view('index');
+        $notes = Note::all();
+        return view('index', ['notes' => $notes]);
+    }
+
     public function store(Request $request){
         $note = new Note();
         $note->title = $request->title;
