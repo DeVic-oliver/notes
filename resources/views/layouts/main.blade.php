@@ -7,8 +7,22 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>Header</header>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/note/create">Add note</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
+        @if (session('msg'))
+            {{session('msg')}}
+        @endif
         @yield('content')
     </main>
     <footer>Footer</footer>
