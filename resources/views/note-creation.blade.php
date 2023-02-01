@@ -4,8 +4,6 @@
 
 @section('content')
 
-@yield('msg')
-
 <form action="/note/store" method="post">
     @csrf
     <label for="note-title">Title</label>
