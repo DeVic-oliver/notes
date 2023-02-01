@@ -15,6 +15,11 @@
                 @csrf
                 <button type="submit" class="btn btn-primary">Visualizar</button>
             </form>
+            <form action="/note/delete/{{$note->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">delete</button>
+            </form>
         </div>
     @endforeach    
 @else

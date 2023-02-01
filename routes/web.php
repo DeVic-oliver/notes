@@ -18,7 +18,7 @@ use App\Http\Controllers\NoteController;
 Route::get('/', [NoteController::class, 'index']);
 Route::get('/note/create', [NoteController::class, 'createNote']);
 Route::post('/note/store', [NoteController::class, 'store']);
-// Route::delete('/note/delete/{id}', [NoteController::class, 'delete']);
+Route::delete('/note/delete/{id}', [NoteController::class, 'delete']);
 Route::get('/note/{id}', [NoteController::class, 'show']);
 // Route::post('/note/edit/{id}', [NoteController::class, 'update']);
 
