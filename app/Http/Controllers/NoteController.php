@@ -22,7 +22,8 @@ class NoteController extends Controller
         $note->description = $request->description;
         $note->owner_id = 1;
         $note->save();
-        return redirect('/note-creation')->with('msg', 'Note created');
+        return redirect('/note/create')->with('msg', 'Note created');
+    }
 
     public function delete(Request $request){
         $note = Note::find($request->id);
