@@ -12,4 +12,9 @@
     @method('DELETE')
     <button type="submit">delete</button>
 </form>
+<form action="/note/edit/{{$note->id}}" method="GET">
+    @csrf
+    <button type="submit">editar</button>
+</form>
+
 @endsection

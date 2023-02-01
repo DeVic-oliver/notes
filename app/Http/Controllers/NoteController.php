@@ -30,6 +30,19 @@ class NoteController extends Controller
         return redirect('/')->with('msg', "Note $request->id deleted");
     }
 
+    public function update(Request $request){
+        $note = Note::findOrfail($request->id);
+        if($note){
+            $note->title = $request->title;
+            $note->description = $request->description;
+            $note->save();
+            return redirect("/note/edit/$note->id")->with('msg', 'Note updated');
+        }
+        return redirect('/')->with('msg', 'Note not Found');
+    }
+
+    public function editNote(Request $request){
+        return view('note-edition', ['id' => $request->id]);
     }
 
     public function show(Request $request){

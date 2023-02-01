@@ -20,6 +20,6 @@ Route::get('/note/create', [NoteController::class, 'createNote']);
 Route::post('/note/store', [NoteController::class, 'store']);
 Route::delete('/note/delete/{id}', [NoteController::class, 'delete']);
 Route::get('/note/{id}', [NoteController::class, 'show']);
-// Route::post('/note/edit/{id}', [NoteController::class, 'update']);
-
+Route::get('/note/edit/{id}', [NoteController::class, 'editNote']);
+Route::put('/note/update/{id}', [NoteController::class, 'update']);
 
