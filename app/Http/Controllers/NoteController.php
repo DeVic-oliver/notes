@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
@@ -13,6 +14,10 @@ class NoteController extends Controller
             return redirect('/dashboard')->with('notes', $notes);
         }
         return view('welcome');
+    }
+    
+    public function dashboard(){
+        $notes = Note::where('owner_id', Auth::user()->id)->get();
         return view('dashboard', ['notes' => $notes]);
     }
 
@@ -24,7 +29,7 @@ class NoteController extends Controller
         $note = new Note();
         $note->title = $request->title;
         $note->description = $request->description;
-        $note->owner_id = 1;
+        $note->owner_id = Auth::user()->id;
         $note->save();
         return redirect('/note/create')->with('msg', 'Note created');
     }
