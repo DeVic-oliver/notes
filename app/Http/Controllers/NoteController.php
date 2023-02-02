@@ -8,8 +8,12 @@ use App\Models\Note;
 class NoteController extends Controller
 {
     public function index(){
-        $notes = Note::all();
-        return view('welcome', ['notes' => $notes]);
+        if(Auth::check()){
+            $notes = Note::all();
+            return redirect('/dashboard')->with('notes', $notes);
+        }
+        return view('welcome');
+        return view('dashboard', ['notes' => $notes]);
     }
 
     public function createNote(){
@@ -28,7 +32,7 @@ class NoteController extends Controller
     public function delete(Request $request){
         $note = Note::find($request->id);
         $note->delete();
-        return redirect('/')->with('msg', "Note $request->id deleted");
+        return redirect('/dashboard')->with('msg', "Note $request->id deleted");
     }
 
     public function update(Request $request){
@@ -39,7 +43,7 @@ class NoteController extends Controller
             $note->save();
             return redirect("/note/edit/$note->id")->with('msg', 'Note updated');
         }
-        return redirect('/')->with('msg', 'Note not Found');
+        return redirect('/dashboard')->with('msg', 'Note not Found');
     }
 
     public function editNote(Request $request){
@@ -51,6 +55,6 @@ class NoteController extends Controller
         if($note){
             return view('note', ['note' => $note]);
         }
-        return redirect('/')->with('msg', 'Note not Found');
+        return redirect('/dashboard')->with('msg', 'Note not Found');
     }
 }
