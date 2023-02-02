@@ -1,17 +1,33 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+@section('title', 'WebNotes Reminder')
+
+@section('content')
+
+<h1>My notes</h1>
+
+@if (is_countable($notes) && count($notes) > 0)
+    @foreach ($notes as $note)
+        <div style="border:1px solid #119955">
+            <h1>{{$note->title}}</h1>
+            <p>{{$note->description}}</p>
+            <form action="/note/{{$note->id}}" method="GET">
+                @csrf
+                <button type="submit" class="btn btn-primary">Visualizar</button>
+            </form>
+            <form action="/note/delete/{{$note->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">delete</button>
+            </form>
+            <form action="/note/edit/{{$note->id}}" method="GET">
+                @csrf
+                <button type="submit">editar</button>
+            </form>
         </div>
-    </div>
-</x-app-layout>
+    @endforeach    
+@else
+    <h2>You don't have any notes!</h2>    
+@endif
+
+@endsection

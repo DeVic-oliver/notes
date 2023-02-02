@@ -1,33 +1,33 @@
-@extends('layouts.main')
-
-@section('title', 'WebNotes Reminder')
-
-@section('content')
-
-<h1>My notes</h1>
-
-@if (is_countable($notes) && count($notes) > 0)
-    @foreach ($notes as $note)
-        <div style="border:1px solid #119955">
-            <h1>{{$note->title}}</h1>
-            <p>{{$note->description}}</p>
-            <form action="/note/{{$note->id}}" method="GET">
-                @csrf
-                <button type="submit" class="btn btn-primary">Visualizar</button>
-            </form>
-            <form action="/note/delete/{{$note->id}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit">delete</button>
-            </form>
-            <form action="/note/edit/{{$note->id}}" method="GET">
-                @csrf
-                <button type="submit">editar</button>
-            </form>
-        </div>
-    @endforeach    
-@else
-    <h2>You don't have any notes!</h2>    
-@endif
-
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                Logo
+            </div>
+            <ul>
+                <li>
+                    <a href="/register">sign up</a>
+                </li>
+                <li>
+                    <a href="/login">sign in</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to web notes</h1>
+        <h2>Create some notes to remember anything</h2>
+    </main>
+    <footer>
+        developed by victor matheus <a href="http://">github</a>
+    </footer>
+</body>
+</html>
