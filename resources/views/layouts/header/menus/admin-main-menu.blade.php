@@ -28,8 +28,5 @@
                 </form>
             </li>
         </ul>
-        <div>
-            <a href="/admin">Admin area</a>
-        </div>
     </nav>
 </header>

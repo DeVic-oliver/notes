@@ -3,7 +3,7 @@
 @section('title', 'Note Creation')
 
 @section('header')
-@extends('layouts.header.menus.main-menu')
+@include('layouts.header.menus.main-menu')
 @endsection
 
 @section('content')
