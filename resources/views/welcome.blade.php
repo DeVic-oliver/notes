@@ -1,33 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div>
-                Logo
-            </div>
-            <ul>
-                <li>
-                    <a href="/register">sign up</a>
-                </li>
-                <li>
-                    <a href="/login">sign in</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Welcome to web notes</h1>
-        <h2>Create some notes to remember anything</h2>
+@extends('layouts.main')
+@section('title', 'Web Notes')
+@section('head')
+<link rel="stylesheet" href="/assets/css/welcome.css">
+@endsection
+
+<header class="">
+    <nav class="">
+        <div clas="">
+            Logo
+        </div>
+        <ul>
+            <li>
+                <a href="/register">sign up</a>
+            </li>
+            <li>
+                <a href="/login">sign in</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+@section('content')
+
+    <main class="">
+        <div class="">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/FJG5l6dfzp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+            <h1>Welcome to web notes</h1>
+            <h2>Create some notes to remember anything</h2>
+            <nav class="">
+                <ul>
+                    <li>
+                        <a href="/register">sign up</a>
+                    </li>
+                    <li>
+                        <a href="/login">sign in</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </main>
-    <footer>
-        developed by victor matheus <a href="http://">github</a>
-    </footer>
-</body>
-</html>
+
+@endsection

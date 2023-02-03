@@ -2,6 +2,10 @@
 
 @section('title', 'Note Creation')
 
+@section('header')
+@extends('layouts.header.menus.main-menu')
+@endsection
+
 @section('content')
 
 <form action="/note/store" method="post">

@@ -5,43 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    @yield('head')
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/note/create">Add note</a>
-                </li>
-                <li>
-                    <a href="/profile">Profile</a>
-                </li>
-                <li>
-                    <a href="/dashboard">Dashboard</a>
-                </li>
-                <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+    @yield('header')
+    
+    @if (session('msg'))
+        {{session('msg')}}
+    @endif
+    
+    @yield('content')
+    
+    <footer>
+        Developed by Victor Matheus - <a href="#">Github</a>
+    </footer>
 
-                        <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-dropdown-link>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        @if (session('msg'))
-            {{session('msg')}}
-        @endif
-        @yield('content')
-    </main>
-    <footer>Footer</footer>
+    @yield('footer-scripts')
 </body>
 </html>
