@@ -2,32 +2,51 @@
 
 @section('title', 'WebNotes Reminder')
 
+@section('head')
+<link rel="stylesheet" href="/assets/css/dashboard.css">
+@endsection
+
+@section('header')
+@include('layouts.header.menus.main-menu')
+@endsection
+
 @section('content')
 
-<h1>My notes</h1>
-
-@if (is_countable($notes) && count($notes) > 0)
-    @foreach ($notes as $note)
-        <div style="border:1px solid #119955">
-            <h1>{{$note->title}}</h1>
-            <p>{{$note->description}}</p>
-            <form action="/note/{{$note->id}}" method="GET">
-                @csrf
-                <button type="submit" class="btn btn-primary">Visualizar</button>
-            </form>
-            <form action="/note/delete/{{$note->id}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit">delete</button>
-            </form>
-            <form action="/note/edit/{{$note->id}}" method="GET">
-                @csrf
-                <button type="submit">editar</button>
-            </form>
+<main class="">
+    <h1 class="">My notes</h1>
+    
+    @if (is_countable($notes) && count($notes) > 0)
+        <div class="">
+            @foreach ($notes as $note)
+                <article class="">
+                    <div class="">
+                        <h1>{{$note->title}}</h1>
+                        <p>{{$note->description}}</p>
+                    </div>
+                    <form action="/note/delete/{{$note->id}}" method="POST" class="">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">delete</button>
+                    </form>
+                    <div class="">
+                        <form action="/note/{{$note->id}}" method="GET">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Visualizar</button>
+                        </form>
+                        <form action="/note/edit/{{$note->id}}" method="GET">
+                            @csrf
+                            <button type="submit">editar</button>
+                        </form>
+                    </div>
+                </article>
+            @endforeach    
         </div>
-    @endforeach    
-@else
-    <h2>You don't have any notes!</h2>    
-@endif
+    @else
+        <div class="">
+            <h2>You don't have any notes!</h2>    
+        </div>
+    @endif
+
+</main>
 
 @endsection
