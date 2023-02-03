@@ -3,7 +3,7 @@
 @section('title', 'WebNotes Reminder')
 
 @section('head')
-<link rel="stylesheet" href="/assets/css/dashboard.css">
+<link rel="stylesheet" href="/assets/css/tailwind-output/dashboard.css">
 @endsection
 
 @section('header')
@@ -13,7 +13,7 @@
 @section('content')
 
 <main class="">
-    <h1 class="">My notes</h1>
+    <h1 class="text-large">My notes</h1>
     
     @if (is_countable($notes) && count($notes) > 0)
         <div class="">
