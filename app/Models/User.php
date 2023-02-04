@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
 
     public function getQuantityOfNotesCreated(){
-        $notesCreated = Note::where('owner_id', '=', $this->id)->get();
+        $notesCreated = $this->getAllNotes();
         return count($notesCreated);
     }
 
@@ -51,4 +51,7 @@ class User extends Authenticatable
         Note::where('owner_id', '=', $this->id)->delete();
     }
 
+    private function getAllNotes(){
+        return Note::where('owner_id', '=', $this->id)->get();
+    }
 }
