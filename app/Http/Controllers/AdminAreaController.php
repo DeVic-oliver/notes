@@ -29,6 +29,7 @@ class AdminAreaController extends Controller
     public function editUser(Request $request) : RedirectResponse{
         $user = User::findOrfail($request->id);
         $user->role = $request->user_role;
+        $user->update();
         return redirect("/admin/users/$user->id")->with('msg', 'User updated!'); 
     }
 
