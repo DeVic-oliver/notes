@@ -32,6 +32,13 @@ class AdminAreaController extends Controller
         return redirect("/admin/users/$user->id")->with('msg', 'User updated!'); 
     }
 
+    public function deleteUser(Request $request) : RedirectResponse{
+        $user = User::findOrfail($request->id);
+        $user->deleteMyNotes();
+        $user->delete();
+        return redirect('/admin/users')->with('msg', 'User deleted!');
+    }
+
     private function redirectToUserDashboardIfNotAdmin(){
         if(Auth::user()->role != 'administrator'){
             return redirect('/dashboard')->with('msg', 'This area is restricted to admins!');

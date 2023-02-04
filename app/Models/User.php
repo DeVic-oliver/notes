@@ -46,4 +46,9 @@ class User extends Authenticatable
         $notesCreated = Note::where('owner_id', '=', $this->id)->get();
         return count($notesCreated);
     }
+
+    public function deleteMyNotes(){
+        Note::where('owner_id', '=', $this->id)->delete();
+    }
+
 }
