@@ -17,6 +17,9 @@
                 <a href="/dashboard">Dashboard</a>
             </li>
             <li>
+                <a href="/admin/users">View users</a>
+            </li>
+            <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
