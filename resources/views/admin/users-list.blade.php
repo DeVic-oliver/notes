@@ -18,6 +18,7 @@
         <td>Email</td>
         <td>Quantity of webnotes</td>
         <td>Role</td>
+        <td>Actions</td>
     </thead>
     <tbody>
         @foreach ($users as $user)
@@ -27,6 +28,12 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->getQuantityOfNotesCreated()}}</td>
                 <td>{{$user->role}}</td>
+                <td>
+                    <form action="/admin/users/{{$user->id}}" method="get">
+                        @csrf
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>
