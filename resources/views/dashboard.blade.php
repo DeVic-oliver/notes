@@ -48,5 +48,24 @@
     @endif
 
 </main>
+@if ((is_countable($warnings) && count($warnings) > 0))
+    <aside>
+        <h3>Last admin warnings</h3>
+        @foreach ($warnings as $warning)
+            <article class="">
+                <div class="">
+                    <h1>{{$warning->title}}</h1>
+                    <p>{{$warning->description}}</p>
+                </div>
+                <div class="">
+                    <form action="/note/{{$warning->id}}" method="GET">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Visualizar</button>
+                    </form>
+                </div>
+            </article>
+        @endforeach
+    </aside>
+@endif
 
 @endsection
