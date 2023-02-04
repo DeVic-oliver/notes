@@ -32,9 +32,9 @@ class AdminAreaController extends Controller
         return redirect("/admin/users/$user->id")->with('msg', 'User updated!'); 
     }
 
+    private function redirectToUserDashboardIfNotAdmin(){
         if(Auth::user()->role != 'administrator'){
             return redirect('/dashboard')->with('msg', 'This area is restricted to admins!');
         }
-        return view('admin.dashboard');
     }
 }
