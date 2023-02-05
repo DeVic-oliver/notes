@@ -3,7 +3,7 @@
 @section('title', 'WebNotes Reminder')
 
 @section('head')
-<link rel="stylesheet" href="/assets/css/dashboard.css">
+<link rel="stylesheet" href="/assets/css/tailwind-output/dashboard.css">
 @endsection
 
 @section('header')
@@ -13,7 +13,7 @@
 @section('content')
 
 <main class="">
-    <h1 class="">My notes</h1>
+    <h1 class="text-large">My notes</h1>
     
     @if (is_countable($notes) && count($notes) > 0)
         <div class="">
@@ -48,5 +48,24 @@
     @endif
 
 </main>
+@if ((is_countable($warnings) && count($warnings) > 0))
+    <aside>
+        <h3>Last admin warnings</h3>
+        @foreach ($warnings as $warning)
+            <article class="">
+                <div class="">
+                    <h1>{{$warning->title}}</h1>
+                    <p>{{$warning->description}}</p>
+                </div>
+                <div class="">
+                    <form action="/note/{{$warning->id}}" method="GET">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Visualizar</button>
+                    </form>
+                </div>
+            </article>
+        @endforeach
+    </aside>
+@endif
 
 @endsection

@@ -10,19 +10,23 @@ class NoteController extends Controller
 {
     public function index(){
         if(Auth::check()){
-            $notes = Note::all();
-            return redirect('/dashboard')->with('notes', $notes);
+            return redirect('/dashboard');
         }
         return view('welcome');
     }
     
     public function dashboard(){
         $notes = Note::where('owner_id', Auth::user()->id)->get();
-        return view('dashboard', ['notes' => $notes]);
+        $warnings = Note::where('type', '=', 'warning')->get();
+        $args = [
+            'notes' => $notes,
+            'warnings' => $warnings,
+        ];
+        return view('dashboard', $args);
     }
 
     public function createNote(){
-        return view('note-creation');
+        return view('note-creation', ['admin' => $this->checkIfIsAdmin()]);
     }
 
     public function store(Request $request){
@@ -45,6 +49,7 @@ class NoteController extends Controller
         if($note){
             $note->title = $request->title;
             $note->description = $request->description;
+            $note->type = $request->type;
             $note->save();
             return redirect("/note/edit/$note->id")->with('msg', 'Note updated');
         }
@@ -52,7 +57,11 @@ class NoteController extends Controller
     }
 
     public function editNote(Request $request){
-        return view('note-edition', ['id' => $request->id]);
+        $args = [
+            'id' => $request->id,
+            'admin' => $this->checkIfIsAdmin(),
+        ];
+        return view('note-edition',  $args);
     }
 
     public function show(Request $request){
@@ -61,5 +70,12 @@ class NoteController extends Controller
             return view('note', ['note' => $note]);
         }
         return redirect('/dashboard')->with('msg', 'Note not Found');
+    }
+
+    private function checkIfIsAdmin(){
+        if(Auth::user()->role == 'administrator'){
+            return true;            
+        }
+        return false;
     }
 }

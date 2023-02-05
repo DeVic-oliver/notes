@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getQuantityOfNotesCreated(){
+        $notesCreated = $this->getAllNotes();
+        return count($notesCreated);
+    }
+
+    public function deleteMyNotes(){
+        Note::where('owner_id', '=', $this->id)->delete();
+    }
+
+    private function getAllNotes(){
+        return Note::where('owner_id', '=', $this->id)->get();
+    }
 }

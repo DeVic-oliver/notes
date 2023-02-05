@@ -24,8 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/admin', [AdminAreaController::class, 'show']);
-    
     Route::get('/dashboard', [NoteController::class, 'dashboard'])->name('dashboard');
     Route::get('/note/create', [NoteController::class, 'createNote']);
     Route::post('/note/store', [NoteController::class, 'store']);
@@ -33,6 +31,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/note/{id}', [NoteController::class, 'show']);
     Route::get('/note/edit/{id}', [NoteController::class, 'editNote']);
     Route::put('/note/update/{id}', [NoteController::class, 'update']);
+
+    Route::middleware('auth-admin')->group(function () {
+        Route::get('/admin', [AdminAreaController::class, 'show']);
+        Route::get('/admin/users', [AdminAreaController::class, 'listUsers']);
+        Route::get('/admin/users/{id}', [AdminAreaController::class, 'showUserProfile']);
+        Route::put('/admin/users/edit/{id}', [AdminAreaController::class, 'editUser']);
+        Route::delete('/admin/users/delete/{id}', [AdminAreaController::class, 'deleteUser']);
+        //Route::get('/admin/warnings/create', [AdminAreaController::class, 'createWarning']);
+        //Route::post('/admin/warnings/store', [AdminAreaController::class, 'createWarning']);
+        //Route::get('/admin/warnings', [AdminAreaController::class, 'listWarnings']);
+        //Route::get('/warnings/{id}', [AdminAreaController::class, 'showWarning']);
+        //Route::put('/admin/warnings/edit/{id}', [AdminAreaController::class, 'editWarning']);
+    });
+
+
 });
 require __DIR__.'/auth.php';
 
