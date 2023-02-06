@@ -2,6 +2,10 @@
 
 @section('title', $note->title )
 
+@section('header')
+@include('layouts.header.menus.main-menu')
+@endsection
+
 @section('content')
     <main class="">
         <div class="">
@@ -9,6 +13,7 @@
                 <h1>{{$note->title}}</h1>
                 <p>{{$note->description}}</p>
             </div>
+
             <div class="">
                 <form action="/note/delete/{{$note->id}}" method="POST">
                     @csrf
