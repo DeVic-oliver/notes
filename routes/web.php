@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/note/{id}', [NoteController::class, 'show']);
     Route::get('/note/edit/{id}', [NoteController::class, 'editNote']);
     Route::put('/note/update/{id}', [NoteController::class, 'update']);
+    Route::get('/warnings/{id}', [NoteController::class, 'showWarning']);
 
     Route::middleware('auth-admin')->group(function () {
         Route::get('/admin', [AdminAreaController::class, 'show']);
@@ -38,13 +39,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/users/{id}', [AdminAreaController::class, 'showUserProfile']);
         Route::put('/admin/users/edit/{id}', [AdminAreaController::class, 'editUser']);
         Route::delete('/admin/users/delete/{id}', [AdminAreaController::class, 'deleteUser']);
-        //Route::get('/admin/warnings/create', [AdminAreaController::class, 'createWarning']);
-        //Route::post('/admin/warnings/store', [AdminAreaController::class, 'createWarning']);
-        //Route::get('/admin/warnings', [AdminAreaController::class, 'listWarnings']);
-        //Route::get('/warnings/{id}', [AdminAreaController::class, 'showWarning']);
-        //Route::put('/admin/warnings/edit/{id}', [AdminAreaController::class, 'editWarning']);
     });
-
+    
 
 });
 require __DIR__.'/auth.php';
