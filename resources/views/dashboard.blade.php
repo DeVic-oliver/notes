@@ -58,7 +58,7 @@
                     <p>{{$warning->description}}</p>
                 </div>
                 <div class="">
-                    <form action="/note/{{$warning->id}}" method="GET">
+                    <form action="/warnings/{{$warning->id}}" method="GET">
                         @csrf
                         <button type="submit" class="btn btn-primary">Visualizar</button>
                     </form>

@@ -72,6 +72,18 @@ class NoteController extends Controller
         return redirect('/dashboard')->with('msg', 'Note not Found');
     }
 
+    public function showWarning(Request $request){
+        $note = Note::findOrfail($request->id);
+        if($note){
+            $args = [
+                'warning' => $note,
+                'isAdmin' => $this->checkIfIsAdmin(),
+            ];
+            return view('warning', $args);
+        }
+        return redirect('/dashboard')->with('msg', 'Note not Found');
+    }
+
     private function checkIfIsAdmin(){
         if(Auth::user()->role == 'administrator'){
             return true;            
