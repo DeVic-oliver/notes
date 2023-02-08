@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.mobile-panner{
-    background-color: pink;
+@layer base {
+    .mobile-menu {
+      @apply block lg:hidden absolute opacity-0 top-0 right-0 bg-[pink] max-h-screen h-full w-0 transition-all duration-300;
+    }
+    .mobile-menu nav{
+        @apply hidden;
+    }
+
+    .container-lg{
+        @apply max-w-[1200px] w-full mx-auto;
+    }
 }

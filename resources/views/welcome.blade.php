@@ -3,48 +3,54 @@
 @section('head')
 @endsection
 
-<header class="bg-black md:bg-white text-gray-800 min-h-fit flex items-center py-5">
-    <nav class="grid grid-cols-2 justify-between xl:container lg:mx-auto sm:w-full sm:px-8">
+<header class="bg-[#fff] mb-12 px-6 py-8">
+    <nav class="container-lg grid grid-cols-2 justify-between">
+
         <div>
             <img src="/img/post-it-logo.png" alt="Post it icons created by Freepik - Flaticon" srcset="" class="w-14 sm:w-24">
         </div>
-        <ul class="flex font-medium justify-around ml-auto items-center">
-            <li class="mr-6">
-                <a href="/register" class="hover:font-bold hover:underline transition-all">sign up</a>
+
+        <ul class="hidden lg:grid grid-flow-col gap-4 items-center justify-end px-6 text-lg">
+            <li class="">
+                <a href="/register" class="hover:text-[#333]">sign up</a>
             </li>
-            <li>
-                <a href="/login" class="hover:font-bold hover:underline transition-all">sign in</a>
+            <li class="">
+                <a href="/login" class="hover:text-[#333]">sign in</a>
             </li>
         </ul>
 
-        <div class="open-panner min-w">O</div>
-
-        <div class="mobile-panner">
-            <div class="close-panner">X</div>
-            <ul class="flex font-medium justify-around ml-auto items-center">
-                <li class="mr-6">
-                    <a href="/register" class="hover:font-bold hover:underline transition-all">sign up</a>
-                </li>
-                <li>
-                    <a href="/login" class="hover:font-bold hover:underline transition-all">sign in</a>
-                </li>
-            </ul>
+        <div id="open-mobile-menu" class="block self-center justify-self-end lg:hidden">
+            <img src="/assets/img/svg/bars-solid.svg" alt="" srcset="" class="w-5">
         </div>
-
+        <div id="mobile-menu" class="mobile-menu">
+            <div id="close-mobile-menu" class="relative">
+                <img src="/assets/img/svg/xmark-solid.svg" alt="" srcset="" class="absolute top-7 right-7 w-5">
+            </div>
+            <nav class="relative top-16">
+                <ul class="flex flex-col font-medium justify-around ml-auto items-start">
+                    <li class="w-full p-5 hover:bg-[#ffa2b1]">
+                        <a href="/register" class="">sign up</a>
+                    </li>
+                    <li class="w-full p-5 hover:bg-[#ffa2b1]">
+                        <a href="/login" class="">sign in</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </nav>
 </header>
 
 @section('content')
 
-    <main class="xl:container mx-auto mt-10 mb-10 grid grid-cols-2 md:grid-cols-1 justify-center">
+    <main class="grid grid-cols-1 lg:grid-cols-2 justify-center px-8">
         <div class="">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/FJG5l6dfzp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe class="w-full" src="https://www.youtube.com/embed/FJG5l6dfzp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="">
-            <h1 class="text-3xl font-bold underline">Welcome to web notes</h1>
-            <h2>Create some notes to remember anything</h2>
-            <nav class="">
-                <ul>
+        <div class="pt-8 pb-8 lg:pt-0 lg:pb-0 lg:pl-8 lg:pr-8">
+            <h1 class="text-3xl text-center lg:text-start">Welcome to web notes</h1>
+            <h2 class="text-xl text-center lg:text-start">Create some notes to remember anything</h2>
+            <nav class="mt-8">
+                <ul class="flex flex-row w-[90%] mx-auto justify-around">
                     <li>
                         <a href="/register">sign up</a>
                     </li>
