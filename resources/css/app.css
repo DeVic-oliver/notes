@@ -9,4 +9,8 @@
     .mobile-menu nav{
         @apply hidden;
     }
+
+    .container-lg{
+        @apply max-w-[1200px] w-full mx-auto;
+    }
 }

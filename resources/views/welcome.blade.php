@@ -4,18 +4,18 @@
 @endsection
 
 <header class="bg-[#fff] mb-12 px-6 py-8">
-    <nav class="grid grid-cols-2 justify-between">
+    <nav class="container-lg grid grid-cols-2 justify-between">
 
         <div>
             <img src="/img/post-it-logo.png" alt="Post it icons created by Freepik - Flaticon" srcset="" class="w-14 sm:w-24">
         </div>
 
-        <ul class="hidden flex flex-row justify-around">
-            <li class="mr-6">
-                <a href="/register" class="hover:font-bold hover:underline transition-all">sign up</a>
+        <ul class="hidden lg:grid grid-flow-col gap-4 items-center justify-end px-6 text-lg">
+            <li class="">
+                <a href="/register" class="hover:text-[#333]">sign up</a>
             </li>
-            <li>
-                <a href="/login" class="hover:font-bold hover:underline transition-all">sign in</a>
+            <li class="">
+                <a href="/login" class="hover:text-[#333]">sign in</a>
             </li>
         </ul>
 
@@ -42,15 +42,15 @@
 
 @section('content')
 
-    <main class="grid grid-cols-1 justify-center px-8">
+    <main class="grid grid-cols-1 lg:grid-cols-2 justify-center px-8">
         <div class="">
             <iframe class="w-full" src="https://www.youtube.com/embed/FJG5l6dfzp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="">
-            <h1 class="">Welcome to web notes</h1>
-            <h2>Create some notes to remember anything</h2>
-            <nav class="">
-                <ul>
+        <div class="pt-8 pb-8 lg:pt-0 lg:pb-0 lg:pl-8 lg:pr-8">
+            <h1 class="text-3xl text-center lg:text-start">Welcome to web notes</h1>
+            <h2 class="text-xl text-center lg:text-start">Create some notes to remember anything</h2>
+            <nav class="mt-8">
+                <ul class="flex flex-row w-[90%] mx-auto justify-around">
                     <li>
                         <a href="/register">sign up</a>
                     </li>
