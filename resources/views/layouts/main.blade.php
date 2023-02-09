@@ -10,7 +10,7 @@
 
     @yield('head')
 </head>
-<body class="bg-amber-50">
+<body class="h-screen">
     @yield('header')
     
     @if (session('msg'))
@@ -19,7 +19,7 @@
 
     @yield('content')
 
-    <footer>
+    <footer class="text-center absolute bottom-0 py-8 w-full">
         Developed by Victor Matheus - <a href="#">Github</a>
     </footer>
 
