@@ -4,7 +4,15 @@
 
 @layer base {
     .mobile-menu {
-      @apply block lg:hidden absolute opacity-0 top-0 right-0 bg-[pink] max-h-screen h-full w-0 transition-all duration-300;
+      @apply block lg:hidden absolute opacity-0 top-0 right-0 bg-[#ffffff] max-h-screen h-full w-0 transition-all duration-300;
+    }
+
+    .mobile-menu nav ul{
+        @apply flex flex-col font-medium justify-around ml-auto items-start;
+    }
+
+    .mobile-menu li{
+        @apply w-full p-5 hover:bg-[#d3d3d3];
     }
 
     .mobile-menu nav{
