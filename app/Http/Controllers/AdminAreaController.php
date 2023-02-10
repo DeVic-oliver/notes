@@ -30,19 +30,28 @@ class AdminAreaController extends Controller
         $user = User::findOrfail($request->id);
         $user->role = $request->user_role;
         $user->update();
-        return redirect("/admin/users/$user->id")->with('msg', 'User updated!'); 
+        return redirect("/admin/users/$user->id")->with([
+            'msg' => 'User updated!',
+            'bg_feedback' => 'bg-feedback-success'
+        ]); 
     }
 
     public function deleteUser(Request $request) : RedirectResponse{
         $user = User::findOrfail($request->id);
         $user->deleteMyNotes();
         $user->delete();
-        return redirect('/admin/users')->with('msg', 'User deleted!');
+        return redirect('/admin/users')->with([
+            'msg' => 'User deleted!',
+            'bg_feedback' => 'bg-feedback-success'
+        ]);
     }
 
     private function redirectToUserDashboardIfNotAdmin(){
         if(Auth::user()->role != 'administrator'){
-            return redirect('/dashboard')->with('msg', 'This area is restricted to admins!');
+            return redirect('/dashboard')->with([
+                'msg' => 'This area is restricted to admins only!',
+                'bg_feedback' => 'bg-feedback-error'
+            ]);
         }
     }
 }

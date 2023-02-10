@@ -35,13 +35,19 @@ class NoteController extends Controller
         $note->description = $request->description;
         $note->owner_id = Auth::user()->id;
         $note->save();
-        return redirect('/note/create')->with('msg', 'Note created');
+        return redirect('/note/create')->with([
+            'msg' => 'Note created',
+            'bg_feedback' => 'bg-feedback-success',
+        ]);
     }
 
     public function delete(Request $request){
         $note = Note::find($request->id);
         $note->delete();
-        return redirect('/dashboard')->with('msg', "Note $request->id deleted");
+        return redirect('/dashboard')->with([
+            'msg' => "Note $request->id deleted",
+            'bg_feedback' => 'bg-feedback-success',
+        ]);
     }
 
     public function update(Request $request){
@@ -53,7 +59,10 @@ class NoteController extends Controller
             $note->save();
             return redirect("/note/edit/$note->id")->with('msg', 'Note updated');
         }
-        return redirect('/dashboard')->with('msg', 'Note not Found');
+        return redirect('/dashboard')->with([
+            'msg' => 'Note not found',
+            'bg_feedback' => 'bg-feedback-warning'
+        ]);
     }
 
     public function editNote(Request $request){
@@ -69,7 +78,10 @@ class NoteController extends Controller
         if($note){
             return view('note', ['note' => $note]);
         }
-        return redirect('/dashboard')->with('msg', 'Note not Found');
+        return redirect('/dashboard')->with([
+            'msg' => 'Note not found',
+            'bg_feedback' => 'bg-feedback-warning'
+        ]);
     }
 
     public function showWarning(Request $request){
@@ -81,7 +93,10 @@ class NoteController extends Controller
             ];
             return view('warning', $args);
         }
-        return redirect('/dashboard')->with('msg', 'Note not Found');
+        return redirect('/dashboard')->with([
+            'msg' => 'Note not found',
+            'bg_feedback' => 'bg-feedback-warning'
+        ]);
     }
 
     private function checkIfIsAdmin(){

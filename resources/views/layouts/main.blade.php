@@ -13,9 +13,11 @@
     @yield('header')
     
     @if (session('msg'))
-        {{session('msg')}}
+        <div class="w-full py-4 text-center text-white {{session('bg_feedback')}}">
+            <p>{{session('msg')}}</p>
+        </div>
     @endif
-
+    
     @yield('content')
 
     <footer class="text-center absolute bottom-auto sm:bottom-0 py-8 w-full bg-[#120f28] text-white">
