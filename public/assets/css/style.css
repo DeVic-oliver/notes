@@ -6,3 +6,15 @@
 .mobile-menu-active nav{
   display: block;
 }
+
+.bg-feedback-success{
+  background-color: rgb(148, 206, 121);
+}
+
+.bg-feedback-warning{
+  background-color: rgb(176, 185, 43);
+}
+
+.bg-feedback-error{
+  background-color: rgb(217, 101, 101);
+}

@@ -7,19 +7,20 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="/assets/css/build/style.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-
     @yield('head')
 </head>
-<body class="h-screen">
+<body class="h-screen bg-amber-50">
     @yield('header')
     
     @if (session('msg'))
-        {{session('msg')}}
+        <div class="w-full py-4 text-center text-white {{session('bg_feedback')}}">
+            <p>{{session('msg')}}</p>
+        </div>
     @endif
-
+    
     @yield('content')
 
-    <footer class="text-center absolute bottom-0 py-8 w-full">
+    <footer class="text-center absolute bottom-auto sm:bottom-0 py-8 w-full bg-[#120f28] text-white">
         Developed by Victor Matheus - <a href="#">Github</a>
     </footer>
 

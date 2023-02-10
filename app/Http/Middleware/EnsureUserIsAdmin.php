@@ -18,7 +18,10 @@ class EnsureUserIsAdmin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()->role != 'administrator'){
-            return redirect('/dashboard')->with('msg', 'This area is restricted to admins!');
+            return redirect('/dashboard')->with([
+                'msg' => 'This area is restricted to admins only!',
+                'bg_feedback' => 'bg-feedback-error'
+            ]);
         }
         return $next($request);
     }
