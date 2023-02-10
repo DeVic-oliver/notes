@@ -1,11 +1,13 @@
 <header>
     <div clas="">
-        Logo
+        <a href="/dashboard">
+            <img src="/img/post-it-logo.png" alt="Post it icons created by Freepik - Flaticon" srcset="" class="w-14">
+        </a>
     </div>
     <nav>
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href="/dashboard">Dashboard</a>
             </li>
             <li>
                 <a href="/note/create">Add note</a>
@@ -14,20 +16,12 @@
                 <a href="/profile">Profile</a>
             </li>
             <li>
-                <a href="/dashboard">Dashboard</a>
-            </li>
-            <li>
                 <a href="/admin/users">View users</a>
             </li>
             <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
-                    <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-dropdown-link>
+                    <input type="submit" value="Logout">
                 </form>
             </li>
         </ul>
