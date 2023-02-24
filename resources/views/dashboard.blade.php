@@ -45,18 +45,9 @@
     <aside>
         <h3>Last admin warnings</h3>
         @foreach ($warnings as $warning)
-            <article class="">
-                <div class="">
-                    <h1>{{$warning->title}}</h1>
-                    <p>{{$warning->description}}</p>
-                </div>
-                <div class="">
-                    <form action="/warnings/{{$warning->id}}" method="GET">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Visualizar</button>
-                    </form>
-                </div>
-            </article>
+            <x-notes.card   :id="$warning->id" 
+                            :title="$warning->title"
+                            :description="$warning->description"/>
         @endforeach
     </aside>
 @endif
