@@ -19,8 +19,14 @@ class NoteController extends Controller
         $notes = Note::where('owner_id', Auth::user()->id)->get();
         $warnings = Note::where('type', '=', 'warning')->get();
         $args = [
-            'notes' => $notes,
-            'warnings' => $warnings,
+            'notes' => [ 
+                'notes' => $notes,
+                'showDelete' => true, 
+            ],
+            'warnings' => [
+                'warnings' => $warnings,
+                'showDelete' => $this->checkIfIsAdmin(),
+            ],
         ];
         return view('dashboard', $args);
     }
