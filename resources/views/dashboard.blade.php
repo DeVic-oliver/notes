@@ -45,9 +45,7 @@
     <aside>
         <h3>Last admin warnings</h3>
         @foreach ($warnings as $warning)
-            <x-notes.card   :id="$warning->id" 
-                            :title="$warning->title"
-                            :description="$warning->description"/>
+            <x-notes.card :id="$warning->id" :title="$warning->title" :description="$warning->description" />
         @endforeach
     </aside>
 @endif
