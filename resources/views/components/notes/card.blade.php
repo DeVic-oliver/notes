@@ -3,7 +3,7 @@
         <h1 class="font-bold text-lg mt-[25px]">{{$title}}</h1>
         <p class="text-base mt-[15px] mb-[15px]">{{$description}}</p>
     </div>
-    @if ( $showDelete( $canShowDelete ) )
+    @if ( $canShowDelete )
         <form action="/note/delete/{{$id}}" method="POST" class="absolute top-0 right-[10px]">
             @csrf
             @method('DELETE')

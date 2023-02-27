@@ -25,8 +25,4 @@ class Card extends Component
     {
         return view('components.notes.card');
     }
-
-    public function showDelete(bool $show) : bool{
-        return $show;
-    }
 }
