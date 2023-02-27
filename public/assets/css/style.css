@@ -861,10 +861,6 @@ video {
   width: 1.5rem;
 }
 
-.w-60 {
-  width: 15rem;
-}
-
 .w-\[45\%\] {
   width: 45%;
 }
@@ -1282,6 +1278,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-xl {
@@ -1774,6 +1775,10 @@ video {
 
   .sm\:pt-0 {
     padding-top: 0px;
+  }
+
+  .sm\:text-start {
+    text-align: start;
   }
 }
 
