@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 
-    <div class="container-lg px-4 mt-11 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div class="container-lg px-4 mt-11 grid grid-cols-1 lg:gap-6 lg:grid-cols-3">
         <main class="col-span-2">
             <h1 class="text-4xl text-center my-7 font-bold md:text-start">EDIT NOTE</h1>
             <form action="/note/update/{{$id}}" method="POST" class="max-w-3xl w-full">
@@ -19,12 +19,6 @@
             </form>
         </main>
         <aside class="mt-8">
-            <div>
-                <h1>NOTE NOTE</h1>
-                <h1>NOTE NOTE</h1>
-                <h1>NOTE NOTE</h1>
-                <h1>NOTE NOTE</h1>
-            </div>
             @include('webnotes-components.notes-list')
         </aside>
     </div>

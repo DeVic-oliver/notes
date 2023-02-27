@@ -75,6 +75,7 @@ class NoteController extends Controller
         $args = [
             'id' => $request->id,
             'admin' => $this->checkIfIsAdmin(),
+            'notes' => Note::where('owner_id', Auth::user()->id)->where('id', '<>', $request->id)->get(),
         ];
         return view('note-edition',  $args);
     }
