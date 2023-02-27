@@ -43,3 +43,10 @@
         @apply bg-gray-800 text-white;
     }
 }
+
+@layer components{
+    input, 
+    textarea{
+        @apply border border-solid rounded-lg border-neutral-200 px-2;
+    }
+}

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\View\Components\Notes;
+namespace App\View\Components\Forms;
 
 use Illuminate\View\Component;
 
-class Card extends Component
+class NoteFormBase extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(public int $id, public string $title, public string $description, public bool $canShowDelete)
+    public function __construct(public bool $isAdmin)
     {
         //
     }
@@ -23,6 +23,6 @@ class Card extends Component
      */
     public function render()
     {
-        return view('components.notes.card');
+        return view('components.forms.note-form-base');
     }
 }
