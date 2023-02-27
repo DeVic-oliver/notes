@@ -13,7 +13,10 @@
         @if (is_countable($notes) && count($notes) > 0)
             <div class="grid grid-cols-1 gap-6 mx-auto mt-[40px] sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ($notes['notes'] as $note)
-                    <x-notes.card :id="$note->id" :title="$note->title" :description="$note->description" :can-show-delete="$notes['showDelete']"/>
+                    <x-notes.card   :id="$note->id" 
+                                    :title="$note->title" 
+                                    :description="$note->description" 
+                                    :can-show-delete="$notes['showDelete']"/>
                 @endforeach    
             </div>
         @else
@@ -26,7 +29,10 @@
         <aside>
             <h3>Last admin warnings</h3>
             @foreach ($warnings['warnings'] as $warning)
-                <x-notes.card :id="$warning->id" :title="$warning->title" :description="$warning->description" :can-show-delete="$warnings['showDelete']"/>
+                <x-notes.card   :id="$warning->id" 
+                                :title="$warning->title" 
+                                :description="$warning->description" 
+                                :can-show-delete="$warnings['showDelete']"/>
             @endforeach
         </aside>
     @endif
