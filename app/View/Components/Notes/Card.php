@@ -11,7 +11,7 @@ class Card extends Component
      *
      * @return void
      */
-    public function __construct(public int $id, public string $title, public string $description)
+    public function __construct(public int $id, public string $title, public string $description, public bool $canShowDelete)
     {
         //
     }
@@ -23,8 +23,10 @@ class Card extends Component
      */
     public function render()
     {
+        return view('components.notes.card');
     }
 
-    public function showDelete(bool $show){
+    public function showDelete(bool $show) : bool{
+        return $show;
     }
 }
