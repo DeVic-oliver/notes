@@ -6,8 +6,6 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-    private static bool $permissionDelete;
-
     /**
      * Create a new component instance.
      *
@@ -25,13 +23,8 @@ class Card extends Component
      */
     public function render()
     {
-        return function (array $data) {
-            $data['permissionDelete'] = Card::$permissionDelete;
-            return view('components.notes.card');
-        };
     }
 
     public function showDelete(bool $show){
-        $this->permissionDelete = $show;
     }
 }
