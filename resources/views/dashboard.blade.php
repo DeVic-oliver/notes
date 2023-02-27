@@ -25,8 +25,8 @@
     </main>
 
     @if ((is_countable($warnings['warnings']) && count($warnings['warnings']) > 0))
-        <aside class="container-lg">
-            <h3>Last admin warnings</h3>
+        <aside class="container-lg px-4">
+            <h3 class="text-2xl text-center lg:text-start mb-6">Last admin warnings</h3>
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 @foreach ($warnings['warnings'] as $warning)
                     <x-notes.card   :id="$warning->id" 

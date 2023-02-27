@@ -1,6 +1,6 @@
-<article class="grid grid-cols-1 gap-3 bg-white rounded-xl p-5 pb-8 relative border w-60 mx-auto sm:w-full">
+<article class="grid grid-cols-1 gap-3 bg-white rounded-xl p-5 pb-8 relative border w-full">
     <div class="">
-        <h1 class="font-bold text-lg mt-[25px]">{{$title}}</h1>
+        <h1 class="font-bold text-lg mt-[25px] text-center sm:text-start">{{$title}}</h1>
         <p class="text-base mt-[15px] mb-[15px]">{{$description}}</p>
     </div>
     @if ( $canShowDelete )
@@ -11,10 +11,12 @@
         </form>
     @endif
     <div class="flex flex-row w-full mx-auto mt-5 text-center justify-around">
-        <form action="/note/edit/{{$id}}" method="GET" class="w-[45%] text-center">
-            @csrf
-            <button type="submit" class="default-btn btn p-3 w-full">Editar</button>
-        </form>
+        @if ( $canShowDelete )
+            <form action="/note/edit/{{$id}}" method="GET" class="w-[45%] text-center">
+                @csrf
+                <button type="submit" class="default-btn btn p-3 w-full">Editar</button>
+            </form>
+        @endif
         <form action="/note/{{$id}}" method="GET" class="w-[45%]">
             @csrf
             <button type="submit" class="default-btn btn p-3 w-full">Ver</button>
