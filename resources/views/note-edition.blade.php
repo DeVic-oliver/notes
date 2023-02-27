@@ -6,28 +6,26 @@
 @endsection
 @section('content')
 
-    <main class="">
-        <div>
+    <div class="grid grid-cols-1 lg:grid-cols-3">
+        <main class="col-span-2">
             <h1>Edit note</h1>
             <form action="/note/update/{{$id}}" method="POST" class=>
                 @csrf
                 @method('PUT')
-                <label for="note-title">Title</label>
-                <input type="text" name="title" id="note-title">
-                @if($admin)
-                    <select name="type" id="">
-                        <option value="reminder">Reminder</option>
-                        <option value="warning">Warning</option>
-                    </select>
-                    <br>
-                @endif
-                <br>
-                <label for="note-description">Description</label>
-                <textarea name="description" id="note-description" cols="30" rows="10"></textarea>
+                <x-forms.note-form-base :is-admin="$admin"/>
                 <button type="submit" class="">Save</button>
             </form>
-        </div>
-       @include('webnotes-components.notes-list')
-    </main>
-    
+        </main>
+        <aside class="">
+            <div>
+                <h1>NOTE NOTE</h1>
+                <h1>NOTE NOTE</h1>
+                <h1>NOTE NOTE</h1>
+                <h1>NOTE NOTE</h1>
+
+            </div>
+            @include('webnotes-components.notes-list')
+        </aside>
+    </div>
+        
 @endsection
