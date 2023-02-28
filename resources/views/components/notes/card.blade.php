@@ -1,7 +1,11 @@
+<?php $descriptionPreview = Str::substr($description, 0, 150); ?>
+
 <article class="grid grid-cols-1 gap-3 bg-white rounded-xl p-5 pb-8 relative border w-full">
     <div class="">
         <h1 class="font-bold text-lg mt-[25px] text-center sm:text-start">{{$title}}</h1>
-        <p class="text-base mt-[15px] mb-[15px]">{{$description}}</p>
+        <p class="text-base mt-[15px] mb-[15px]">
+            <?php echo $descriptionPreview . '...'; ?>
+        </p>
     </div>
     @if ( $canShowDelete )
         <form action="/note/delete/{{$id}}" method="POST" class="absolute top-0 right-[10px]">
