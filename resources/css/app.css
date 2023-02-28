@@ -42,11 +42,16 @@
     .btn-dark{
         @apply bg-gray-800 text-white;
     }
+
+    .btn-delete{
+        @apply bg-red-500 text-white;
+    }
 }
 
 @layer components{
     input, 
-    textarea{
+    textarea,
+    select{
         @apply border border-solid rounded-lg border-neutral-200 px-2;
     }
 }
