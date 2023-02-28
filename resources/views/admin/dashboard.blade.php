@@ -1,9 +1,7 @@
-@extends('layouts.main')
+@extends('admin.main')
 
 @section('title', 'Admin area')
 
-@include('layouts.header.menus.admin-main-menu')
-
 @section('content')
-<h1>THIS IS THE ADMIN AREA. WELCOME!!</h1>
+    <h1>THIS IS THE ADMIN AREA. WELCOME!!</h1>
 @endsection
