@@ -1,10 +1,16 @@
-<?php $descriptionPreview = Str::substr($description, 0, 150); ?>
+<?php
+    if(Str::length($description) > 150){
+        $descriptionPreview = Str::substr($description, 0, 150).'...'; 
+    }else{
+        $descriptionPreview = $description;
+    }
+?>
 
 <article class="grid grid-cols-1 gap-3 bg-white rounded-xl p-5 pb-8 relative border w-full">
     <div class="">
         <h1 class="font-bold text-lg mt-[25px] text-center sm:text-start">{{$title}}</h1>
         <p class="text-base mt-[15px] mb-[15px]">
-            <?php echo $descriptionPreview . '...'; ?>
+            <?php echo $descriptionPreview; ?>
         </p>
     </div>
     @if ( $canShowDelete )
@@ -23,7 +29,7 @@
         @endif
         <form action="/note/{{$id}}" method="GET" class="w-[45%]">
             @csrf
-            <button type="submit" class="default-btn btn p-3 w-full">Ver</button>
+            <button type="submit" class="default-btn btn btn-dark p-3 w-full">Ver</button>
         </form>
     </div>
 </article>
