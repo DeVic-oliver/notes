@@ -63,7 +63,10 @@ class NoteController extends Controller
             $note->description = $request->description;
             $note->type = $request->type;
             $note->save();
-            return redirect("/note/edit/$note->id")->with('msg', 'Note updated');
+            return redirect("/note/edit/$note->id")->with([
+                'msg' => 'Note updated',
+                'bg_feedback' => 'bg-feedback-success',
+            ]);
         }
         return redirect('/dashboard')->with([
             'msg' => 'Note not found',
