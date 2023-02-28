@@ -77,6 +77,7 @@ class NoteController extends Controller
     public function editNote(Request $request){
         $args = [
             'id' => $request->id,
+            'note' => Note::findOrfail($request->id),
             'admin' => $this->checkIfIsAdmin(),
             'notes' => Note::where('owner_id', Auth::user()->id)->where('id', '<>', $request->id)->get(),
         ];
