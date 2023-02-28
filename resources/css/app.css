@@ -46,6 +46,7 @@
     .btn-delete{
         @apply bg-red-500 text-white;
     }
+    
 }
 
 @layer components{

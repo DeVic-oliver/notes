@@ -1,0 +1,18 @@
+.bg-feedback-success,
+.bg-feedback-error,
+.bg-feedback-warning{
+    color: #fff;
+}
+
+.bg-feedback-success{
+    background-color: #00912e;
+}
+
+.bg-feedback-error{
+    background-color: #a30101;
+
+}
+
+.bg-feedback-warning{
+    background-color: #898700;
+}

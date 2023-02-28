@@ -11,7 +11,7 @@ class NoteFormBase extends Component
      *
      * @return void
      */
-    public function __construct(public bool $isAdmin)
+    public function __construct(public bool $isAdmin, public string $titleValue = "", public string $descriptionValue = "")
     {
         //
     }
