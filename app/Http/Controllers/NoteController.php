@@ -83,7 +83,11 @@ class NoteController extends Controller
     public function show(Request $request){
         $note = Note::findOrfail($request->id);
         if($note){
-            return view('note', ['note' => $note]);
+            $args = [
+                'note' => $note,
+                'notes' => Note::where('owner_id', Auth::user()->id)->where('id', '<>', $request->id)->get(),
+            ];
+            return view('note', $args);
         }
         return redirect('/dashboard')->with([
             'msg' => 'Note not found',
