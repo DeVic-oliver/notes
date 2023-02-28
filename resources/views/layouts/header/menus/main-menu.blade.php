@@ -10,10 +10,10 @@
                 <a href="/dashboard">Dashboard</a>
             </li>            
             <li class="ml-4">
-                <a href="/note/create">Add note</a>
+                <a href="/note/create">Adicionar nota</a>
             </li class="ml-4">
             <li class="ml-4">
-                <a href="/profile">Profile</a>
+                <a href="/profile">Perfil</a>
             </li class="ml-4">
             <li class="ml-4">
                 <form method="POST" action="{{ route('logout') }}">
@@ -39,10 +39,10 @@
                         <a href="/dashboard">Dashboard</a>
                     </li>            
                     <li>
-                        <a href="/note/create">Add note</a>
+                        <a href="/note/create">Adicionar nota</a>
                     </li>
                     <li>
-                        <a href="/profile">Profile</a>
+                        <a href="/profile">Perfil</a>
                     </li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
