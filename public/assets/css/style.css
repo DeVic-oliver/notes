@@ -1746,10 +1746,6 @@ input,
     height: 215px;
   }
 
-  .sm\:w-96 {
-    width: 24rem;
-  }
-
   .sm\:w-\[360px\] {
     width: 360px;
   }
