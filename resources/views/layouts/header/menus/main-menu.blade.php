@@ -29,7 +29,7 @@
         <div id="open-mobile-menu" class="block self-center justify-self-end lg:hidden">
             <img src="/assets/img/svg/bars-solid.svg" alt="" srcset="" class="w-5">
         </div>
-        <div id="mobile-menu" class="mobile-menu z-50 border-l-2 border-solid">
+        <div id="mobile-menu" class="mobile-menu bg-slate-100">
             <div id="close-mobile-menu" class="relative">
                 <img src="/assets/img/svg/xmark-solid.svg" alt="" srcset="" class="absolute top-7 right-7 w-5">
             </div>
