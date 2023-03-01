@@ -10,9 +10,9 @@
     @yield('head')
 </head>
 <body class="h-screen bg-white">
+
     <header class="bg-black flex flex-row items-center justify-between px-4 py-2">
         <h3  class="text-white">Admin panel</h3>
-
         <ul class="hidden lg:block">
             <li>
                 <form method="POST" action="{{ route('logout') }}" class="">
@@ -21,68 +21,46 @@
                 </form>
             </li>    
         </ul>
-
         <div id="open-mobile-menu" class="w-[15px] block lg:hidden ">
             <svg xmlns="http://www.w3.org/2000/svg" class="fill-white" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
         </div>
-
     </header>
-    <div class="grid grid-cols-1 lg:grid-cols-2">
-        <aside class="hidden lg:block lg:relative lg:w-[45%] xl:w-[30%] bg-gray-900 text-white">
-            <nav class="grid grid-cols-1">
+
+    <div class="grid grid-cols-1 lg:grid-cols-6">
+        <aside class="col-start-1 col-end-2 text-white">
+            {{-- DESKTOP NAV MENU --}}
+            <div class="hidden bg-gray-900 h-screen lg:block lg:relative ">
+                <nav class="grid grid-cols-1">
+                    <div class="relative">
+                        <h3 id="teste" class="text-4xl uppercase font-bold">Webnotes</h3>
+                    </div>
+                    <ul class="lg:flex flex-col mt-6">
+                        @include('admin.menu.default-items')
+                    </ul>                
+                </nav>
+            </div>
+
+            {{-- MOBILE MENU --}}
+            <div id="mobile-menu" class="mobile-menu bg-gray-900 flex flex-col lg:hidden">
                 <div class="relative">
                     <h3 id="teste" class="text-4xl uppercase font-bold">Webnotes</h3>
                 </div>
+                <div id="close-mobile-menu" class="relative z-[9999] w-full lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-white absolute top-0 right-0 left-auto w-5" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+                </div>
                 <ul class="lg:flex flex-col mt-6">
-                    <li class="">
-                        <a href="/dashboard">Dashboard</a>
-                    </li>            
-                    <li class="">
-                        <a href="/note/create">Adicionar Nota</a>
-                    </li>
-                    <li class="">
-                        <a href="/profile">Perfil</a>
-                    </li>
-                    <li class="">
-                        <a href="/admin/users">Usuários</a>
-                    </li>
+                    @include('admin.menu.default-items')
                     <li class="block lg:hidden">
                         <form method="POST" action="{{ route('logout') }}" class="">
                             @csrf
                             <input type="submit" value="Logout" class="cursor-pointer text-white">
                         </form>
                     </li>  
-                </ul>                
-            </nav>
-        </aside>
-
-        <aside id="mobile-menu" class="mobile-menu lg:hidden">
-            <div id="close-mobile-menu" class="relative z-[9999] w-full lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg"  class="fill-white absolute top-0 right-0 left-auto w-5" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+                </ul>        
             </div>
-            <ul class="lg:flex flex-col mt-6">
-                <li class="">
-                    <a href="/dashboard">Dashboard</a>
-                </li>            
-                <li class="">
-                    <a href="/note/create">Adicionar Nota</a>
-                </li>
-                <li class="">
-                    <a href="/profile">Perfil</a>
-                </li>
-                <li class="">
-                    <a href="/admin/users">Usuários</a>
-                </li>
-                <li class="block lg:hidden">
-                    <form method="POST" action="{{ route('logout') }}" class="">
-                        @csrf
-                        <input type="submit" value="Logout" class="cursor-pointer text-white">
-                    </form>
-                </li>  
-            </ul>        
         </aside>
 
-        <main class="w-full relative lg:w-[55%] xl:w-[70%]">
+        <main class="lg:col-start-2 lg:col-end-7 relative bg-red-400">
             @if (session('msg'))
                 <div class="w-full py-4 text-center text-white {{session('bg_feedback')}}">
                     <p>{{session('msg')}}</p>

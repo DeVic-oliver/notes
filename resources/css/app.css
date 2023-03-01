@@ -7,10 +7,6 @@
         @apply absolute opacity-0 top-0 left-0 p-6 h-screen w-full z-[-9999] transition-opacity duration-200;
     }
 
-    .mobile-menu li{
-        @apply w-full p-5 hover:bg-[#d3d3d3];
-    }
-
     .container-y-space{
         @apply py-20;
     }
