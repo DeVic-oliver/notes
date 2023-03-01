@@ -7,6 +7,14 @@
         @apply absolute opacity-0 top-0 left-0 p-6 h-screen w-full z-[-9999] transition-opacity duration-200;
     }
 
+    .mobile-menu ul li{
+        @apply mb-5 h-8 border-b border-solid;
+    }
+
+    .mobile-menu ul li a{
+        @apply block w-full;
+    }
+
     .container-y-space{
         @apply py-20;
     }

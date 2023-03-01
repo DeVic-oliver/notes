@@ -41,22 +41,22 @@
             </div>
 
             {{-- MOBILE MENU --}}
-            <div id="mobile-menu" class="mobile-menu bg-gray-900 flex flex-col lg:hidden">
+            <div id="mobile-menu" class="mobile-menu bg-gray-900 flex flex-col p-6 lg:hidden">
                 <div class="relative">
                     <h3 id="teste" class="text-4xl uppercase font-bold">Webnotes</h3>
                 </div>
-                <div id="close-mobile-menu" class="relative z-[9999] w-full lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-white absolute top-0 right-0 left-auto w-5" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
+                <div id="close-mobile-menu" class="absolute top-5 right-5 left-auto z-[9999] lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="fill-white w-5" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg>
                 </div>
                 <ul class="lg:flex flex-col mt-6">
                     @include('admin.menu.default-items')
-                    <li class="block lg:hidden">
-                        <form method="POST" action="{{ route('logout') }}" class="">
-                            @csrf
-                            <input type="submit" value="Logout" class="cursor-pointer text-white">
-                        </form>
-                    </li>  
                 </ul>        
+                <div class="mt-8">
+                    <form method="POST" action="{{ route('logout') }}" class="">
+                        @csrf
+                        <input type="submit" value="Logout" class="w-40 p-4 text-start bg-gray-700 cursor-pointer text-white border-none">
+                    </form>
+                </div>
             </div>
         </aside>
 
