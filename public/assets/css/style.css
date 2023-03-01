@@ -422,46 +422,27 @@ video {
 .mobile-menu {
   position: absolute;
   top: 0px;
-  right: 0px;
-  display: block;
-  height: 100%;
-  max-height: 100vh;
-  width: 0px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  opacity: 0;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-@media (min-width: 1024px) {
-  .mobile-menu {
-    display: none;
-  }
-}
-
-.mobile-menu nav ul {
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  font-weight: 500;
-}
-
-.mobile-menu li {
+  left: 0px;
+  z-index: -9999;
+  height: 100vh;
   width: 100%;
-  padding: 1.25rem;
+  padding: 1.5rem;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
-.mobile-menu li:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(211 211 211 / var(--tw-bg-opacity));
+.mobile-menu ul li {
+  margin-bottom: 1.25rem;
+  height: 2rem;
+  border-bottom-width: 1px;
+  border-style: solid;
 }
 
-.mobile-menu nav {
-  display: none;
+.mobile-menu ul li a {
+  display: block;
+  width: 100%;
 }
 
 .container-lg {
@@ -469,37 +450,6 @@ video {
   margin-right: auto;
   width: 100%;
   max-width: 1400px;
-}
-
-.default-btn {
-  border-radius: 0.5rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.btn {
-  --tw-bg-opacity: 1;
-  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
-.btn-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.btn-delete {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 *, ::before, ::after {
@@ -596,6 +546,37 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.default-btn {
+  border-radius: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.btn-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.btn-delete {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 input, 
     textarea,
     select {
@@ -651,8 +632,16 @@ input,
   top: 4rem;
 }
 
-.top-0 {
-  top: 0px;
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.left-auto {
+  left: auto;
 }
 
 .left-0 {
@@ -661,6 +650,10 @@ input,
 
 .right-0 {
   right: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .right-\[10px\] {
@@ -679,12 +672,20 @@ input,
   z-index: 50;
 }
 
+.z-\[9999\] {
+  z-index: 9999;
+}
+
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.col-start-1 {
+  grid-column-start: 1;
+}
+
+.col-end-2 {
+  grid-column-end: 2;
 }
 
 .mx-auto {
@@ -733,18 +734,6 @@ input,
   margin-left: 1.5rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
-.ml-4 {
-  margin-left: 1rem;
-}
-
-.ml-0 {
-  margin-left: 0px;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -767,6 +756,10 @@ input,
 
 .ml-3 {
   margin-left: 0.75rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .mt-16 {
@@ -795,6 +788,14 @@ input,
 
 .mb-\[15px\] {
   margin-bottom: 15px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.ml-0 {
+  margin-left: 0px;
 }
 
 .block {
@@ -887,6 +888,10 @@ input,
 
 .w-\[90\%\] {
   width: 90%;
+}
+
+.w-\[15px\] {
+  width: 15px;
 }
 
 .w-48 {
@@ -1125,6 +1130,10 @@ input,
   border-style: solid;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1154,11 +1163,6 @@ input,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-amber-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 243 199 / var(--tw-bg-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1167,6 +1171,16 @@ input,
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#120f28\] {
@@ -1209,6 +1223,15 @@ input,
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.fill-white {
+  fill: #fff;
+}
+
 .fill-current {
   fill: currentColor;
 }
@@ -1248,9 +1271,9 @@ input,
   padding-right: 2rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .py-4 {
@@ -1261,11 +1284,6 @@ input,
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .py-1 {
@@ -1877,9 +1895,25 @@ input,
 }
 
 @media (min-width: 1024px) {
+  .lg\:relative {
+    position: relative;
+  }
+
+  .lg\:col-start-2 {
+    grid-column-start: 2;
+  }
+
+  .lg\:col-end-7 {
+    grid-column-end: 7;
+  }
+
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .lg\:block {
+    display: block;
   }
 
   .lg\:flex {
@@ -1920,6 +1954,10 @@ input,
 
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:justify-start {

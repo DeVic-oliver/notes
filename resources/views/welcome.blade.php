@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Web Notes')
 @section('header')
-<header class="bg-amber-100 p-6 mb-[60px]">
+<header class="bg-white p-6 mb-[60px]">
     <nav class="container-lg grid grid-cols-2 justify-between">
 
         <div>

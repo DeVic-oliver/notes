@@ -16,3 +16,8 @@
 .bg-feedback-warning{
     background-color: #898700;
 }
+
+#mobile-menu.mobile-menu-active{
+    opacity: 1;
+    z-index: 9999;
+}
