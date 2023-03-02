@@ -644,6 +644,14 @@ input,
   left: auto;
 }
 
+.top-auto {
+  top: auto;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -668,12 +676,12 @@ input,
   right: 0.5rem;
 }
 
-.z-50 {
-  z-index: 50;
-}
-
 .z-\[9999\] {
   z-index: 9999;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .col-span-2 {
@@ -892,6 +900,10 @@ input,
 
 .w-\[15px\] {
   width: 15px;
+}
+
+.w-40 {
+  width: 10rem;
 }
 
 .w-48 {
@@ -1248,12 +1260,12 @@ input,
   padding: 1.5rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .p-4 {
   padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-4 {
@@ -1357,6 +1369,10 @@ input,
 
 .text-center {
   text-align: center;
+}
+
+.text-start {
+  text-align: start;
 }
 
 .font-sans {

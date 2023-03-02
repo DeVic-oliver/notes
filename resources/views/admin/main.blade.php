@@ -71,7 +71,7 @@
     
     </div>
     
-    <footer class="text-center py-8 w-full bg-[#120f28] text-white">
+    <footer class="relative top-auto bottom-0 text-center py-8 w-full bg-[#120f28] text-white">
         Developed by Victor Matheus - <a href="#">Github</a>
     </footer>
 
