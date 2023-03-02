@@ -26,13 +26,13 @@
         </div>
     </header>
 
-    <div class="grid grid-cols-1 lg:grid-cols-6">
-        <aside class="col-start-1 col-end-2 text-white">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+        <aside class="col-start-1 col-end-3 text-white">
             {{-- DESKTOP NAV MENU --}}
             <div class="hidden bg-gray-900 h-screen lg:block lg:relative ">
-                <nav class="grid grid-cols-1">
+                <nav class="grid grid-cols-1 px-4 py-6">
                     <div class="relative">
-                        <h3 id="teste" class="text-4xl uppercase font-bold">Webnotes</h3>
+                        <h3 id="teste" class="text-2xl uppercase font-bold xl:text-3xl">Webnotes</h3>
                     </div>
                     <ul class="lg:flex flex-col mt-6">
                         @include('admin.menu.default-items')
@@ -54,13 +54,13 @@
                 <div class="mt-8">
                     <form method="POST" action="{{ route('logout') }}" class="">
                         @csrf
-                        <input type="submit" value="Logout" class="w-40 p-4 text-start bg-gray-700 cursor-pointer text-white border-none">
+                        <input type="submit" value="Logout" class="w-40 p-4 bg-gray-700 cursor-pointer text-white border-none">
                     </form>
                 </div>
             </div>
         </aside>
 
-        <main class="lg:col-start-2 lg:col-end-7 relative bg-red-400">
+        <main class="px-4 py-8 lg:px-10 lg:col-start-3 lg:col-end-13 relative">
             @if (session('msg'))
                 <div class="w-full py-4 text-center text-white {{session('bg_feedback')}}">
                     <p>{{session('msg')}}</p>
@@ -71,7 +71,7 @@
     
     </div>
     
-    <footer class="text-center py-8 w-full bg-[#120f28] text-white">
+    <footer class="relative top-auto bottom-0 text-center py-8 w-full bg-[#120f28] text-white">
         Developed by Victor Matheus - <a href="#">Github</a>
     </footer>
 

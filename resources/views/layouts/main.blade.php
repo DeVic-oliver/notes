@@ -20,7 +20,7 @@
     
     @yield('content')
 
-    <footer class="text-center mt-16 py-8 w-full bg-[#120f28] text-white">
+    <footer class="relative text-center mt-16 py-8 w-full bg-[#120f28] text-white">
         Developed by Victor Matheus - <a href="#">Github</a>
     </footer>
 
